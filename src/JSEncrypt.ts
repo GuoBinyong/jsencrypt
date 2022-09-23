@@ -148,7 +148,7 @@ export class JSEncrypt {
         if (!this.key) {
             // Get a new private key.
             this.key = new JSEncryptRSAKey();
-            if (cb && {}.toString.call(cb) === "[object Function]") {
+            if (typeof cb === 'function') {
                 this.key.generateAsync(this.default_key_size, this.default_public_exponent, cb);
                 return;
             }
