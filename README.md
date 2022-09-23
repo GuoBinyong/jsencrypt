@@ -54,7 +54,7 @@ cat rsa_1024_pub.pem
   <head>
     <title>JavaScript RSA Encryption</title>
     <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
-    <script src="bin/jsencrypt.min.js"></script>
+    <script src="dist/jsencrypt.iife.js"></script>
     <script type="text/javascript">
 
       // Call this code when the page is done loading.

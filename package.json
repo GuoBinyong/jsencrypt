@@ -2,48 +2,53 @@
   "name": "jsencrypt",
   "version": "3.2.1",
   "description": "A Javascript library to perform OpenSSL RSA Encryption, Decryption, and Key Generation.",
-  "main": "bin/jsencrypt.js",
-  "module": "lib/index.js",
-  "types": "lib/index.d.ts",
-  "dependencies": {},
-  "devDependencies": {
-    "typescript": "^4.2.4",
-    "webpack": "^5.35.1",
-    "webpack-cli": "^4.6.0"
-  },
-  "files": [
-    "bin",
-    "lib"
-  ],
-  "scripts": {
-    "build:dev": "tsc && tsc --project tsconfig-def.json && webpack",
-    "build:prod": "tsc && tsc --project tsconfig-def.json && webpack --config webpack.prod.js",
-    "build": "npm run build:dev && npm run build:prod",
-    "serve": "bundle exec jekyll server --config _config.build.yml"
-  },
-  "author": "Travis Tidwell <travis@form.io>",
-  "contributors": [
-    {
-      "name": "Travis Tidwell",
-      "email": "travis@form.io",
-      "url": "http://github.com/travist"
-    },
-    {
-      "name": "Antonio",
-      "url": "https://github.com/zoloft"
-    },
-    {
-      "name": "Julio",
-      "url": "https://github.com/jmgaya"
-    }
-  ],
-  "homepage": "http://www.travistidwell.com/jsencrypt",
+  "main": "dist/jsencrypt.umd.js",
+  "module": "dist/jsencrypt.mjs",
+  "types": "dist/index.d.ts",
+  "sideEffects": false,
+  "homepage": "https://github.com/GuoBinyong/jsencrypt#readme",
   "repository": {
     "type": "git",
-    "url": "git://github.com/travist/jsencrypt.git"
+    "url": "https://github.com/GuoBinyong/jsencrypt"
   },
   "bugs": {
-    "url": "http://github.com/travist/jsencrypt/issues"
+    "url": "https://github.com/GuoBinyong/jsencrypt/issues",
+    "email": "guobinyong@qq.com"
   },
-  "license": "MIT"
+  "keywords": [
+    "前端库",
+    "web库",
+    "library",
+    "vite",
+    "vite 模板",
+    "公共代码"
+  ],
+  "author": {
+    "name": "郭斌勇",
+    "email": "guobinyong@qq.com"
+  },
+  "license": "MIT",
+  "files": [
+    "dist/[^.]*",
+    "types/[^.]*",
+    "docs/[^.]*",
+    "doc/[^.]*"
+  ],
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "bunch": "vite build --mode bunch",
+    "preview": "vite preview",
+    "api": "api-extractor run -c api-extractor.jsonc -l -v",
+    "doc": "npm run api ; api-documenter markdown -i ./temp -o doc/api"
+  },
+  "devDependencies": {
+    "@microsoft/api-documenter": "^7.17.15",
+    "@microsoft/api-extractor": "^7.24.1",
+    "build-tls": "^1.3.11",
+    "dts-bundle-generator": "^6.12.0",
+    "package-tls": "^1.3.1",
+    "typescript": "^4.5.4",
+    "vite": "^3.0.9"
+  }
 }
