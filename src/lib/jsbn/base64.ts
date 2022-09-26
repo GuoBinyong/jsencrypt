@@ -4,8 +4,14 @@ const b64map = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/
 const b64pad = "=";
 
 /**
- * 16进制的字符串转为 base64
- * @param h - 16进制的字符串
+ * 将内容为16进制数字的字符串转为 base64
+ * 
+ * @remarks
+ * 与 `btoa()` 的区别是：
+ * - `btoa()` 函数要求输入是一个字符串，它会将输入字符串的每一个字符对应的 code 作为一个内存中占八位（即：一个字节）二进制数据来对象，然后将这些二进制数据编码为 `Base64` 编码的 `ASCII` 字符串
+ * - `hex2b64()` 函数要求输入是内容为16进制数字的字符串，将字符串文本所表达的数字内容作为目标数据来处理
+ * 
+ * @param h - 内容为16进制数字的字符串，将字符串文本所表达的数字内容作为目标数据来处理
  * @returns 
  */
 export function hex2b64(h:string) {
@@ -37,7 +43,12 @@ export function hex2b64(h:string) {
     return ret;
 }
 
-// 转换 base64 字符串为 16进制字符串
+
+/**
+ * 转换 base64 字符串为 16进制字符串
+ * @param s - base64 字符串
+ * @returns 
+ */
 export function b64tohex(s:string) {
     let ret = "";
     let i;
