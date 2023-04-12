@@ -25,6 +25,12 @@ import {SecureRandom} from "./rng";
 //     return b.toString(16);
 // }
 
+/**
+ * 填充算法
+ * @param s - 被填充的字符串
+ * @param n - 要将 s  填充到多少个 bytes
+ * @returns 返回一个 BigInteger
+ */
 function pkcs1pad1(s:string, n:number) {
     if (n < s.length + 22) {
         console.error("Message too long for RSA");
@@ -39,7 +45,15 @@ function pkcs1pad1(s:string, n:number) {
     return parseBigInt(m, 16);
 }
 
-// PKCS#1 (type 2, random) pad input string s to n bytes, and return a bigint
+
+/**
+ * PKCS#1 (type 2, random)
+ * @remarks
+ * 将输入字符串填充到 n 个字节，并返回一个 BigInteger
+ * @param s - 被填充的字符串
+ * @param n - 要将 s  填充到多少个 bytes
+ * @returns 返回一个 BigInteger
+ */
 function pkcs1pad2(s:string, n:number) {
     if (n < s.length + 11) { // TODO: fix for utf-8
 
